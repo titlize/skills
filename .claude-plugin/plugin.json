@@ -1,0 +1,10 @@
+{
+  "name": "titlize",
+  "version": "1.0.0",
+  "description": "Generate Open Graph and share images with Titlize from your AI coding agent.",
+  "homepage": "https://titlize.com/docs/integrations/ai-agents",
+  "author": {
+    "name": "Titlize",
+    "url": "https://titlize.com"
+  }
+}

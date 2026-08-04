@@ -1,0 +1,25 @@
+{
+  "name": "titlize",
+  "owner": {
+    "name": "Titlize",
+    "url": "https://titlize.com"
+  },
+  "metadata": {
+    "description": "Titlize agent skills — generate Open Graph and social share images from your AI coding agent.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "titlize",
+      "source": "./",
+      "description": "Generate Open Graph and share images with Titlize: titled image generation, saved brand assets, and the WordPress plugin.",
+      "version": "1.0.0",
+      "homepage": "https://titlize.com/docs/integrations/ai-agents",
+      "skills": [
+        "./skills/generate",
+        "./skills/brand-kit",
+        "./skills/wordpress"
+      ]
+    }
+  ]
+}
