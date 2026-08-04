@@ -19,9 +19,16 @@ npx -y skills add titlize/skills --skill '*' --yes --global
 ```
 
 Or let your agent do the whole setup — skills, MCP server, API token and a first generated
-image — by pasting this into it:
+image. Tell it to fetch and follow https://titlize.com/agent-setup/prompt.md, or copy the
+ready-made sentence from [the AI agents guide](https://titlize.com/docs/integrations/ai-agents).
 
-> Fetch and execute the appropriate instructions to set me up for Titlize from https://titlize.com/agent-setup/prompt.md
+<!--
+  The onboarding sentence is deliberately NOT written out here. It is defined once, in the
+  Titlize monorepo, and every surface renders it from that definition. This README is published
+  into a separate repository where nothing could keep a copy in step — so a copy here would be
+  the first thing to go stale. An acceptance test enforces the single definition.
+-->
+
 
 ## What's here
 
