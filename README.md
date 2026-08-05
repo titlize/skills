@@ -38,7 +38,7 @@ ready-made sentence from [the AI agents guide](https://titlize.com/docs/integrat
 | `brand-kit` | the saved logo, brand colours and font applied to generated images |
 | `wordpress` | the Titlize WordPress plugin |
 
-You will also need the MCP server, [`@image-titler/mcp-connector`](https://www.npmjs.com/package/@image-titler/mcp-connector),
+You will also need the MCP server, [`@titlize/mcp-connector`](https://www.npmjs.com/package/@titlize/mcp-connector),
 and an API token from [app.titlize.com](https://app.titlize.com).
 
 ## A note on where this repo comes from
