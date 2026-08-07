@@ -33,6 +33,24 @@ user explicitly asks for something different for one image.
 - If the user has no saved assets, that is fine — generation works without them. Do not treat
   it as an error to fix.
 
+## Checking what the account has left
+
+A Titlize plan carries a monthly generation allowance, and brand work is usually the moment
+someone is about to generate a batch. Before a long run, check it — a failure halfway through a
+set of images is worse than knowing up front.
+
+The Titlize MCP server offers a `check_usage` tool. How it is addressed depends on how the
+server was installed, and all three ways are supported:
+
+| How it was installed | Call |
+|---|---|
+| Bundled in the Titlize plugin | `mcp__plugin_titlize_titlize__check_usage` |
+| `claude mcp add titlize …` | `mcp__titlize__check_usage` |
+| Any other MCP client | `check_usage` |
+
+Use whichever your tool list actually offers. It reads only — it never changes anything — and
+reports what has been used, the allowance, what remains, and when the period resets.
+
 ## What this skill does not cover
 
 Actually rendering an image, and the WordPress plugin. Those are separate.

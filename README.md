@@ -38,8 +38,40 @@ ready-made sentence from [the AI agents guide](https://titlize.com/docs/integrat
 | `brand-kit` | the saved logo, brand colours and font applied to generated images |
 | `wordpress` | the Titlize WordPress plugin |
 
-You will also need the MCP server, [`@titlize/mcp-connector`](https://www.npmjs.com/package/@titlize/mcp-connector),
-and an API token from [app.titlize.com](https://app.titlize.com).
+The plugin also brings the MCP server with it — you no longer need to install
+[`@titlize/mcp-connector`](https://www.npmjs.com/package/@titlize/mcp-connector) separately. All
+you supply is an API token from [app.titlize.com](https://app.titlize.com); `SETUP.md` walks your
+agent through it after install.
+
+## What this plugin installs and runs
+
+Read this before installing — it is the check the plugin directory's own guidance asks you to
+make, and you should be able to make it without running anything.
+
+| What | Where it comes from | What it does |
+|---|---|---|
+| `generate`, `brand-kit`, `wordpress` skills | this repository | Markdown instructions. No code, nothing executed |
+| `@titlize/mcp-connector`, **pinned to an exact version** | npm, published by Titlize | Runs on your machine via `npx` and calls `https://api.titlize.com` |
+
+The connector is pinned rather than floating so that the version you install cannot change
+underneath you without a new plugin release passing directory review. It is bundled, so it
+resolves nothing further from the registry at launch.
+
+**What leaves your machine.** The background image you ask Titlize to put a headline on is
+uploaded to `api.titlize.com` to be composited, and the finished image is served from there. Your
+API token authenticates those requests. Nothing else is sent anywhere. Privacy policy:
+<https://titlize.com/privacy>.
+
+Distributed under the MIT licence — see `LICENSE`. Use of the plugin through the Claude plugin
+directory is additionally subject to the Anthropic Software Directory Terms and the Anthropic
+Software Directory Policy.
+
+## Keeping the listing honest
+
+The directory listing for this plugin describes what it does, what it connects to, and which
+environments it has actually been run in. **Those claims are re-checked whenever the listing
+copy, the tools, or the set of supported environments changes** — a listing may name only
+environments the plugin has genuinely been installed and used in.
 
 ## A note on where this repo comes from
 

@@ -10,8 +10,17 @@ social link previews.
 
 ## How to call it
 
-If the Titlize MCP server is registered, use its `generate_image` tool. Otherwise POST to the
-API directly:
+If the Titlize MCP server is registered, use its `generate_image` tool. How that tool is
+addressed depends on how the server was installed, and all three ways are supported:
+
+| How it was installed | Call |
+|---|---|
+| Bundled in the Titlize plugin | `mcp__plugin_titlize_titlize__generate_image` |
+| `claude mcp add titlize …` | `mcp__titlize__generate_image` |
+| Any other MCP client | `generate_image` |
+
+Use whichever your tool list actually offers — do not guess from this table. If none is present,
+the server is not registered; POST to the API directly instead:
 
 ```bash
 curl -X POST https://api.titlize.com/generate \
