@@ -50,26 +50,41 @@ Titlize". Show them the resulting image URL.
 
 ## What the tools need, and what happens when they do not have it
 
-Two values are required and **neither has a default**:
+One value is required and **has no default**; the other has one:
 
 | Variable | Value | Who sets it |
 |---|---|---|
-| `IMAGE_TITLER_API_TOKEN` | the developer's own token | the developer, step 2 |
-| `IMAGE_TITLER_BASE_URL` | `https://api.titlize.com` | already set by this plugin |
+| `IMAGE_TITLER_API_TOKEN` | the developer's own token | the developer, step 2 — **required** |
+| `IMAGE_TITLER_BASE_URL` | `https://api.titlize.com` | already set by this plugin; defaults to the same value if unset |
 
-`IMAGE_TITLER_BASE_URL` is listed because the tools genuinely refuse to start without it and
-because the same server can be registered by hand outside this plugin — see
-`https://titlize.com/agent-setup/prompt.md`, where the developer supplies both. Inside this
-plugin it is already configured.
+`IMAGE_TITLER_BASE_URL` is listed because the same server can be registered by hand outside this
+plugin — see `https://titlize.com/agent-setup/prompt.md`. It only needs supplying when pointing
+at a deployment other than the hosted one. Inside this plugin it is already configured.
 
 If something goes wrong, these are the failures you will actually see:
 
-- **The tools do not start at all, reporting a missing value.** The variable is not set in the
-  environment the agent launched from. Have the developer `export` it and restart the agent —
-  setting it in a shell you are not running in will not help.
-- **The tools do not start, reporting an unexpanded `${...}` placeholder.** Same cause, one step
-  earlier: the plugin's configuration referenced the variable and the environment had nothing to
-  substitute. Same fix.
+- **The Titlize tools are missing, or the host reports the server failed to connect.** In
+  Claude Code this looks like:
+
+  ```
+  plugin:titlize:titlize: npx -y @titlize/mcp-connector@0.1.1 - ✘ Failed to connect
+  ```
+
+  **This is almost always the token, and the host will not tell you that.** The server prints a
+  precise reason — `API token is the unexpanded placeholder ${IMAGE_TITLER_API_TOKEN}, which
+  means that environment variable is not set` — but the host does not surface it; you get a
+  generic connection error instead. Do not go looking for a network or npm problem.
+
+  Confirm the cause by running the server yourself and reading what it actually says:
+
+  ```bash
+  IMAGE_TITLER_API_TOKEN="${IMAGE_TITLER_API_TOKEN:-}" \
+  IMAGE_TITLER_BASE_URL=https://api.titlize.com \
+    npx -y @titlize/mcp-connector@0.1.1 </dev/null
+  ```
+
+  The fix is to `export IMAGE_TITLER_API_TOKEN` in the environment the agent launched from — and
+  then restart the agent. Setting it in a shell the agent is not running in will not help.
 - **The tools start but a generation is rejected as unauthorised.** The token is wrong, mistyped,
   revoked, or from a different account. Have them create a fresh one.
 - **A generation is refused for quota.** Their plan's monthly allowance is spent. `check_usage`
