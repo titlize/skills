@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Titlize agent skills \u2014 generate Open Graph and social share images from your AI coding agent.",
-    "version": "1.1.1"
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "titlize",
       "source": "./",
       "description": "Generate Open Graph and share images with Titlize: titled image generation, saved brand assets, and the WordPress plugin.",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "homepage": "https://titlize.com/docs/integrations/ai-agents",
       "repository": "https://github.com/titlize/skills",
       "keywords": ["open-graph", "social-image", "image-generation", "og-image", "wordpress"],

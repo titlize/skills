@@ -37,6 +37,11 @@ Note the path is `/generate` — there is no version prefix on the API.
 - **A title.** Required. Keep it short — a headline, not a paragraph. Long titles are
   auto-sized down and get hard to read on a phone-sized card.
 - **A subtitle.** Optional.
+- **An accent (optional).** Wrap words of the title in asterisks to draw them in an accent
+  color: `Why *small teams* ship faster` (`**double**` works too, and several spans share one
+  color). Markers don't count toward the length; write `\*` for a literal asterisk. Pass
+  `accentColor` (`#RRGGBB`) to pick the color; otherwise the user's saved Brand Kit primary
+  color is used, else `#3FB8F5`. Only use asterisks for emphasis the user wants.
 
 Do not invent a headline for the user unless they asked you to write one.
 

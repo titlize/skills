@@ -2,7 +2,7 @@
   "mcpServers": {
     "titlize": {
       "command": "npx",
-      "args": ["-y", "@titlize/mcp-connector@0.1.1"],
+      "args": ["-y", "@titlize/mcp-connector@0.2.0"],
       "env": {
         "IMAGE_TITLER_API_TOKEN": "${IMAGE_TITLER_API_TOKEN}",
         "IMAGE_TITLER_BASE_URL": "https://api.titlize.com"

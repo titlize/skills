@@ -67,7 +67,7 @@ If something goes wrong, these are the failures you will actually see:
   Claude Code this looks like:
 
   ```
-  plugin:titlize:titlize: npx -y @titlize/mcp-connector@0.1.1 - ✘ Failed to connect
+  plugin:titlize:titlize: npx -y @titlize/mcp-connector@0.2.0 - ✘ Failed to connect
   ```
 
   **This is almost always the token, and the host will not tell you that.** The server prints a
@@ -80,7 +80,7 @@ If something goes wrong, these are the failures you will actually see:
   ```bash
   IMAGE_TITLER_API_TOKEN="${IMAGE_TITLER_API_TOKEN:-}" \
   IMAGE_TITLER_BASE_URL=https://api.titlize.com \
-    npx -y @titlize/mcp-connector@0.1.1 </dev/null
+    npx -y @titlize/mcp-connector@0.2.0 </dev/null
   ```
 
   The fix is to `export IMAGE_TITLER_API_TOKEN` in the environment the agent launched from — and
